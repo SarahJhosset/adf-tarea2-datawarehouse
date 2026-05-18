@@ -1,5 +1,5 @@
 {
-	"name": "df_bronze_establecimiento",
+	"name": "df_bronze_catalogo_establecimientos",
 	"properties": {
 		"folder": {
 			"name": "bronze"
