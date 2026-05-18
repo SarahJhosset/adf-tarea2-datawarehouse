@@ -16,7 +16,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          establecimiento_id as string,",
@@ -35,7 +39,11 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 derive(establecimiento_id = trim(establecimiento_id),",
+				"          nombre_establecimiento = lower(trim(nombre_establecimiento)),",
+				"          tipo_establecimiento = lower(trim(tipo_establecimiento)),",
+				"          zona = lower(trim(zona))) ~> derivedColumn1"
 			]
 		}
 	}
